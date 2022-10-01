@@ -1,0 +1,36 @@
+ALGORITHM algorithm_name
+VAR
+    tab1, tab2: ARRAY_OF INTEGER[10]
+    sum_tab1, sum_tab2: INTEGER := 0
+    m, n : INTEGER
+BEGIN
+
+
+    //Comme enonce dans la description, il faudrait s'assurer que les valeurs des deux tableaux soit reelement unique avant d'executer cet algorithme.
+
+    //Probleme 2 solu 1
+
+    tab1 := {12, 13, 6, 10};
+
+    FOR m FROM 1 TO tab1.length STEP 1  DO
+        FOR n FROM 1 TO tab2.length STEP 1  DO
+            IF (tab1[m] === tab2[n]) THEN
+                sum_tab1 = sum_tab1 + tab1[m]; // sum_tab1 = 23
+            END_IF
+        END_FOR
+    END_FOR
+
+    tab2 := {13, 10, 16, 15};
+
+    FOR n FROM 1 TO tab2.length STEP 1  DO
+        FOR m FROM 1 TO tab1.length STEP 1  DO
+            IF (tab1[m] === tab2[n]) THEN
+                sum_tab2 = sum_tab2 + tab2[n]; // sum_tab2 = 23
+            END_IF
+        END_FOR
+    END_FOR
+
+    Write("Output: ", sum_tab1 + sum_tab2); //Output: 46
+
+
+END

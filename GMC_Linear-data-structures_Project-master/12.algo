@@ -1,0 +1,37 @@
+ALGORITHM algorithm_name
+VAR
+    htab : HASH_TABLE<INTEGER, INTEGER>;
+    tab : ARRAY_OF INTEGER[20]
+    count, i, somme: INTEGER
+BEGIN
+
+
+    tab := {3, 1, 7, 9, 2, 4, 1, 9, 3};
+    count := 0;
+
+
+    //on parcoure notre tab et on compte l'occurence de chaque valeur
+
+    FOR i FROM 1 TO tab.length STEP 1 DO
+        IF (htab.lookup(tab[i]) = TRUE) THEN //on verifie si tab[i] existe deja dans tab
+            count := htab.get(tab[i]); //on affecte la (value) de tab[i] dans count.
+            htab.insert(tab[i], count + 1); // on insert (tab[i]) comme key et (value de tab[i] = count + 1) comme value.
+        ELSE 
+        htab.insert(tab[i], 1); //on insert toutes les valeurs de tab (keys) sans occurence avec une value = 1.
+        END_IF
+    END_FOR
+
+
+    //on fait la somme de toutes les keys (tab[i]) ayant comme value (1)
+
+    somme := 0;
+    FOR i FROM 1 TO tab.length STEP 1  DO
+        IF (htab.get(tab[i]) = 1) THEN
+            somme := somme + tab[i]; //somme = 13
+        END_IF
+    END_FOR
+
+    Write("Output: ", somme); //Output: 13
+
+
+END

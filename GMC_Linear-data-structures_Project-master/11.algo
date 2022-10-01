@@ -1,0 +1,36 @@
+ALGORITHM algorithm_name
+VAR
+    tab1, tab2: ARRAY_OF INTEGER[10]
+    sum_tab1, sum_tab2: INTEGER := 0
+    m, n : INTEGER
+BEGIN
+
+
+    //Probleme 1 solu 1
+
+    tab1 := {3, 1, 7, 9};
+
+    FOR m FROM 1 TO tab1.length STEP 1  DO
+        sum_tab1 := sum_tab1 + tab1[m];
+        FOR n FROM 1 TO tab2.length STEP 1  DO
+            IF (tab1[m] === tab2[n]) THEN
+                sum_tab1 = sum_tab1 - tab1[m]; // sum_tab1 = 7
+            END_IF
+        END_FOR
+    END_FOR
+
+    tab2 := {2, 4, 1, 9, 3};
+
+    FOR n FROM 1 TO tab2.length STEP 1  DO
+        sum_tab2 := sum_tab2 + tab2[n];
+        FOR m FROM 1 TO tab1.length STEP 1  DO
+            IF (tab1[m] === tab2[n]) THEN
+                sum_tab2 = sum_tab2 - tab2[n]; // sum_tab2 = 6
+            END_IF
+        END_FOR
+    END_FOR
+
+    Write("Output: ", sum_tab1 + sum_tab2); //Output: 13
+
+
+END
